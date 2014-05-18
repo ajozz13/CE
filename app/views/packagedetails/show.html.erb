@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tracking:</strong>
+  <%= @packagedetail.tracking %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @packagedetail.length %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @packagedetail.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @packagedetail.height %>
+</p>
+
+<p>
+  <strong>Piece weight:</strong>
+  <%= @packagedetail.piece_weight %>
+</p>
+
+<%= link_to 'Edit', edit_packagedetail_path(@packagedetail) %> |
+<%= link_to 'Back', packagedetails_path %>

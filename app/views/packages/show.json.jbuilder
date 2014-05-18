@@ -1,0 +1,1 @@
+json.extract! @package, :id, :tracking, :customer_id, :weight, :value, :sender_name, :sender_address, :sender_city, :sender_state, :sender_country, :sender_phone, :sender_email, :created_at, :updated_at

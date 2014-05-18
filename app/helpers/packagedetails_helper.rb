@@ -1,0 +1,2 @@
+module PackagedetailsHelper
+end

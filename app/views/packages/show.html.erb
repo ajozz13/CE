@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tracking:</strong>
+  <%= @package.tracking %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @package.customer_id %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @package.weight %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @package.value %>
+</p>
+
+<p>
+  <strong>Sender name:</strong>
+  <%= @package.sender_name %>
+</p>
+
+<p>
+  <strong>Sender address:</strong>
+  <%= @package.sender_address %>
+</p>
+
+<p>
+  <strong>Sender city:</strong>
+  <%= @package.sender_city %>
+</p>
+
+<p>
+  <strong>Sender state:</strong>
+  <%= @package.sender_state %>
+</p>
+
+<p>
+  <strong>Sender country:</strong>
+  <%= @package.sender_country %>
+</p>
+
+<p>
+  <strong>Sender phone:</strong>
+  <%= @package.sender_phone %>
+</p>
+
+<p>
+  <strong>Sender email:</strong>
+  <%= @package.sender_email %>
+</p>
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>

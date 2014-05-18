@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Package:</strong>
+  <%= @tracking.package_id %>
+</p>
+
+<p>
+  <strong>Times:</strong>
+  <%= @tracking.times %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @tracking.action_id %>
+</p>
+
+<%= link_to 'Edit', edit_tracking_path(@tracking) %> |
+<%= link_to 'Back', trackings_path %>

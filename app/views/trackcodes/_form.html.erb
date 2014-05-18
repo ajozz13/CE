@@ -1,0 +1,21 @@
+<%= form_for(@trackcode) do |f| %>
+  <% if @trackcode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trackcode.errors.count, "error") %> prohibited this trackcode from being saved:</h2>
+
+      <ul>
+      <% @trackcode.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

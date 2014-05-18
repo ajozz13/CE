@@ -1,0 +1,29 @@
+<h1>Listing trackings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Times</th>
+      <th>Action</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trackings.each do |tracking| %>
+      <tr>
+        <td><%= tracking.package_id %></td>
+        <td><%= tracking.times %></td>
+        <td><%= tracking.action_id %></td>
+        <td><%= link_to 'Show', tracking %></td>
+        <td><%= link_to 'Edit', edit_tracking_path(tracking) %></td>
+        <td><%= link_to 'Destroy', tracking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tracking', new_tracking_path %>

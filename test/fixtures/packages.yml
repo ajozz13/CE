@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tracking: MyString
+  customer_id: 1
+  weight: 9.99
+  value: 9.99
+  sender_name: MyString
+  sender_address: MyString
+  sender_city: MyString
+  sender_state: MyString
+  sender_country: MyString
+  sender_phone: MyString
+  sender_email: MyString
+
+two:
+  tracking: MyString
+  customer_id: 1
+  weight: 9.99
+  value: 9.99
+  sender_name: MyString
+  sender_address: MyString
+  sender_city: MyString
+  sender_state: MyString
+  sender_country: MyString
+  sender_phone: MyString
+  sender_email: MyString

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  package_id: MyString
+  times: 2014-05-17 22:34:30
+  action_id: 1
+
+two:
+  package_id: MyString
+  times: 2014-05-17 22:34:30
+  action_id: 1

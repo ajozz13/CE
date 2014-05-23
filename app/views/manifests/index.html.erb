@@ -1,0 +1,31 @@
+<h1>Listing manifests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Notes</th>
+      <th>Total weight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manifests.each do |manifest| %>
+      <tr>
+        <td><%= manifest.origin %></td>
+        <td><%= manifest.destination %></td>
+        <td><%= manifest.notes %></td>
+        <td><%= manifest.total_weight %></td>
+        <td><%= link_to 'Show', manifest %></td>
+        <td><%= link_to 'Edit', edit_manifest_path(manifest) %></td>
+        <td><%= link_to 'Destroy', manifest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Manifest', new_manifest_path %>

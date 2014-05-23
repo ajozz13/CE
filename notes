@@ -1,0 +1,90 @@
+cinco_estrellas
+IMPORTANT KEEP MODEL name singular
+Setup
+rails generate scaffold Customer name:string address:string city:string state:string zip:string country:string phone:string email:string
+rails generate scaffold Package tracking:string customer_id:integer weight:decimal value:decimal sender_name:string sender_address:string sender_city:string sender_state:string sender_country:string sender_phone:string sender_email:string
+rails generate scaffold Packagedetail tracking:string length:integer width:integer height:integer piece_weight:decimal package_id:int
+rails generate scaffold Tracking package_id:string times:timestamp trackcode_id:integer
+rails generate scaffold Trackcode description:string
+rails generate scaffold Manifest origin:string destination:string notes:string total_wei
+ght:decimal 
+rails generate model Manifestdetail manifest_id:int tracking:string
+
+rake db:migrate
+
+Migrations
+AddXXXToYYY
+RemoveXXXFromYYY
+rails generate migration AddPackageIdToPackagedetails package_id:int
+rails generate migration RemovePakcageIdFromPackage package_id:int
+Models          has_many :to_class_plural       belongs_to :to_class_singular
+Customer        has_many :packages, dependent: :destroy
+
+Package         belongs_to :customer
+                has_many :trackings, dependent: :destroy
+                has_many :packagedetails, dependent: :destroy
+
+Tracking        belongs_to :package
+PackageDetail   belongs_to :package
+
+
+DB
+To access DB
+sqlite3 db/development.sqlite3
+or use rails console: example Package.all
+
+GEMS
+For active admin demo page railscasts.com/episodes/284-active-admin
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'
+gem 'country-select'
+
+bundle
+rails generate active_admin:install
+rails generate active_admin:resource (NAME OF RESOURCE)
+rails g active_admin:resource customer
+rails g active_admin:resource package
+
+REMOVING MODELS
+bundle exec rake db:rollback
+rails destroy model ModelName
+
+Joining tables
+Manifest.select("*").joins(:manifestdetail)
+Queries
+	Finding Manifest details
+	select a manifest  		m = Manifest.first
+	then query for details		Manifestdetail.where(manifest_id: m.id) 			
+
+Active Admin Notes
+Some setup you must do manually if you haven't yet:
+
+  1. Ensure you have defined default url options in your environments files. Here
+     is an example of default_url_options appropriate for a development environment
+     in config/environments/development.rb:
+
+       config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+     In production, :host should be set to the actual host of your application.
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root to: "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+  4. If you are deploying on Heroku with Rails 3.2 only, you may want to set:
+
+       config.assets.initialize_on_precompile = false
+
+     On config/application.rb forcing your application to not access the DB
+     or load models when precompiling your assets.
+
+  5. You can copy Devise views (for customization) to your app by running:
+
+       rails g devise:views

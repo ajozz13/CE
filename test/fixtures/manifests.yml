@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin: MyString
+  destination: MyString
+  notes: MyString
+  total_weight: 9.99
+
+two:
+  origin: MyString
+  destination: MyString
+  notes: MyString
+  total_weight: 9.99

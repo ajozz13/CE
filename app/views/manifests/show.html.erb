@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @manifest.origin %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @manifest.destination %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @manifest.notes %>
+</p>
+
+<p>
+  <strong>Total weight:</strong>
+  <%= @manifest.total_weight %>
+</p>
+
+<%= link_to 'Edit', edit_manifest_path(@manifest) %> |
+<%= link_to 'Back', manifests_path %>

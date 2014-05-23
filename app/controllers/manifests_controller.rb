@@ -10,6 +10,7 @@ class ManifestsController < ApplicationController
   # GET /manifests/1
   # GET /manifests/1.json
   def show
+    @details = Manifestdetail.where(manifest_id: @manifest.id)
   end
 
   # GET /manifests/new

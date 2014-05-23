@@ -20,5 +20,14 @@
   <%= @manifest.total_weight %>
 </p>
 
+<table border="1" cellpadding="0" cellspacing="1">
+	<caption>Manifest Details</caption>
+	<tbody>
+	<% @details.each do |d| %>
+		<tr><td><%= d.tracking %></td></tr>
+	<% end %>
+	</tbody>
+</table>
+
 <%= link_to 'Edit', edit_manifest_path(@manifest) %> |
 <%= link_to 'Back', manifests_path %>

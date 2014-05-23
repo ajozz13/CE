@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522012846) do
+ActiveRecord::Schema.define(version: 20140522031756) do
 
   create_table "customers", force: true do |t|
     t.string   "name"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20140522012846) do
     t.string   "country"
     t.string   "phone"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manifestdetails", force: true do |t|
+    t.integer  "manifest_id"
+    t.string   "tracking"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manifests", force: true do |t|
+    t.string   "origin"
+    t.string   "destination"
+    t.string   "notes"
+    t.decimal  "total_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

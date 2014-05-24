@@ -54,7 +54,19 @@ Manifest.select("*").joins(:manifestdetail)
 Queries
 	Finding Manifest details
 	select a manifest  		m = Manifest.first
-	then query for details		Manifestdetail.where(manifest_id: m.id) 			
+	then query for details		Manifestdetail.where(manifest_id: m.id) 	
+	
+	NOTE: It seems that doing the above query Manifestdetail.find_by( manifest_id: m.id )
+	is better because the returned object actually reflects the model better than with where.	
+	for example this error code is shown when we searched using where
+	undefined method `customer' for #<Package::ActiveRecord_Relation:0x00000002a8d278>
+	
+	31:                         p = Package.find_by( tracking: d.tracking )
+    32:                         c = p.customer
+    			The above worked but the bottom did not
+    
+    33:                         p = Package.where( tracking: d.tracking )
+    34:                         c = p.customer
 
 Active Admin Notes
 Some setup you must do manually if you haven't yet:

@@ -1,30 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Origin:</strong>
-  <%= @manifest.origin %>
-</p>
+<div>
+	<span><strong>Origin: </strong><%= @manifest.origin %>&nbsp;|&nbsp;</span>   
+	<span><strong>Destination: </strong> <%= @manifest.destination %></span>
+</div>
 
+<div>
 <p>
-  <strong>Destination:</strong>
-  <%= @manifest.destination %>
+  <span><strong>Total weight: </strong><%= @manifest.total_weight %>&nbsp;|&nbsp;</span>
+  <span><strong>Created: </strong><%= @manifest.created_at %></span>
 </p>
-
 <p>
-  <strong>Notes:</strong>
+ <strong>Notes:</strong>
   <%= @manifest.notes %>
 </p>
-
-<p>
-  <strong>Total weight:</strong>
-  <%= @manifest.total_weight %>
-</p>
+</div>
 
 <table border="1" cellpadding="0" cellspacing="1">
 	<caption>Manifest Details</caption>
 	<tbody>
-	<% @details.each do |d| %>
-		<tr><td><%= d.tracking %></td></tr>
+		<tr>
+			<th>Tracking Number</th>
+			<th>From:</th>
+			<th>To:</th>
+			<th>Weight:</th>
+			<th>Value:</th>
+		</tr>
+	<% 
+		@details.each do |d| 
+			p = Package.find_by( tracking: d.tracking )
+			c = p.customer
+	%>
+			<tr>
+				<td><%= p.tracking %></td>
+				<td><%= p.sender_address_html %></td>
+				<td><%= c.customer_address_html %></td>
+				<td><%= p.weight %></td>
+				<td><%= p.value %></td>
+			</tr>	
 	<% end %>
 	</tbody>
 </table>

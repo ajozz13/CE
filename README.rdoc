@@ -1,7 +1,7 @@
 == README
 This is a rails application that is setup for testing and learning
 Rails components.  Specifically focusing on concepts employed in
-companies that hanlde courier materials.
+companies that handle courier materials.
 
 For more information
 please contact me directly:
